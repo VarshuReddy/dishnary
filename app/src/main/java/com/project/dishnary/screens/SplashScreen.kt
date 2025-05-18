@@ -21,6 +21,7 @@ import com.project.dishnary.ui.theme.DishnaryTheme
 @Composable
 fun SplashScreen() {
 
+
     Box(
         modifier = Modifier
             .fillMaxSize()

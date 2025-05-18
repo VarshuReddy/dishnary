@@ -13,7 +13,7 @@ import androidx.compose.ui.unit.sp
 
 val DishnaryLogo = TextStyle(
     color = Color(0xFFFF6347), // Tomato
-    fontSize = 90.sp,
+    fontSize = 95.sp,
     fontWeight = FontWeight.Bold,
     fontStyle = FontStyle.Italic,
     fontFamily = FontFamily.Cursive,
