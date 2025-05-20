@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.offset
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.paint
@@ -17,9 +18,15 @@ import androidx.compose.ui.unit.dp
 import com.project.dishnary.R
 import com.project.dishnary.ui.theme.DishnaryLogo
 import com.project.dishnary.ui.theme.DishnaryTheme
+import kotlinx.coroutines.delay
 
 @Composable
 fun SplashScreen() {
+
+    LaunchedEffect(Unit) {
+        delay(2000)
+        
+    }
 
 
     Box(
