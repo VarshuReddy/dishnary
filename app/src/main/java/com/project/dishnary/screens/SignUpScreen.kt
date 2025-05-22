@@ -28,6 +28,8 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.rememberNavController
 import com.project.dishnary.R
 import com.project.dishnary.ui.theme.Black
 import com.project.dishnary.ui.theme.DishnaryTheme
@@ -37,7 +39,7 @@ import com.project.dishnary.ui.theme.SlateGray
 import com.project.dishnary.ui.theme.Tomato
 
 @Composable
-fun SignUpScreen() {
+fun SignUpScreen(navControl: NavHostController) {
 
     var email by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
@@ -126,6 +128,6 @@ fun SignUpScreen() {
 @Composable
 fun SignUpPreview() {
     DishnaryTheme {
-        SignUpScreen()
+        SignUpScreen(rememberNavController())
     }
 }

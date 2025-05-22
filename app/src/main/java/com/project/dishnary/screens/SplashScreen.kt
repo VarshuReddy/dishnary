@@ -15,19 +15,23 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.rememberNavController
+import com.project.dishnary.Navigate
 import com.project.dishnary.R
 import com.project.dishnary.ui.theme.DishnaryLogo
 import com.project.dishnary.ui.theme.DishnaryTheme
 import kotlinx.coroutines.delay
 
 @Composable
-fun SplashScreen() {
+fun SplashScreen(navControl: NavHostController) {
 
     LaunchedEffect(Unit) {
         delay(2000)
-        
+        navControl.navigate("login"){
+            popUpTo("splash"){ inclusive = true}
+        }
     }
-
 
     Box(
         modifier = Modifier
@@ -55,6 +59,6 @@ fun SplashScreen() {
 @Composable
 fun GreetingPreview() {
     DishnaryTheme {
-        SplashScreen()
+        SplashScreen(rememberNavController())
     }
 }
