@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "309033715671",
+    "project_id": "dishnary-9fe4a",
+    "storage_bucket": "dishnary-9fe4a.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:309033715671:android:8ca9970416c78016142d92",
+        "android_client_info": {
+          "package_name": "com.project.dishnary"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBvFnkMlNNsliEZK3HpTSjQOD1vDSqpUME"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
