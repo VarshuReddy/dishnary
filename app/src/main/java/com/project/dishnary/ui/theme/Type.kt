@@ -6,6 +6,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shadow
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
@@ -24,7 +25,7 @@ val Typography = Typography(
 
 //     Other default text styles to override
     titleLarge = TextStyle(
-        fontFamily = FontFamily.Default,
+        fontFamily = FontFamily(Font(R.font.delius_swashcaps_regular)),
         fontWeight = FontWeight.Bold,
         fontSize = 22.sp,
         lineHeight = 28.sp,
@@ -32,9 +33,9 @@ val Typography = Typography(
     )
     ,
     labelSmall = TextStyle(
-        fontFamily = FontFamily.Default,
+        fontFamily =  FontFamily(Font(R.font.delius_swashcaps_regular)),
         fontWeight = FontWeight.Medium,
-        fontSize = 11.sp,
+        fontSize = 18.sp,
         lineHeight = 16.sp,
         letterSpacing = 0.5.sp
     )
