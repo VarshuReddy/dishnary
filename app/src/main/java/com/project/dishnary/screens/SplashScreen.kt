@@ -73,10 +73,10 @@ fun SplashScreen(navControl: NavHostController, authVm: AuthenticationVM) {
 
 }
 
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    DishnaryTheme {
-        SplashScreen(rememberNavController(), hiltViewModel())
-    }
-}
+//@Preview(showBackground = true)
+//@Composable
+//fun GreetingPreview() {
+//    DishnaryTheme {
+//        SplashScreen(rememberNavController(), hiltViewModel())
+//    }
+//}

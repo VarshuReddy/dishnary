@@ -2,6 +2,7 @@ package com.project.dishnary.screens
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Spacer
@@ -59,114 +60,128 @@ fun LoginScreen(navControl: NavHostController, authVm: AuthenticationVM) {
             }
         }
     }
-    Column(
+    Box(
         modifier = Modifier
-            .fillMaxSize().offset(y = -50.dp),
-        horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.Center
+            .fillMaxSize()
+            .padding(bottom = 40.dp)
     ) {
-        Text(
-            text = "Log in",
-            modifier = Modifier.offset(y = -50.dp),
-            textAlign = TextAlign.Center,
-            color = PurpleGrey40,
-            style= MaterialTheme.typography.titleLarge.copy(fontSize = 70.sp),
-        )
-        Text(
-            modifier = Modifier.fillMaxWidth().padding(50.dp, 0.dp, 50.dp, 0.dp),
-            text = "Email",
-            textAlign = TextAlign.Left,
-            color = PurpleGrey40,
-            style= MaterialTheme.typography.titleLarge,
-        )
-        Spacer(modifier = Modifier.height(8.dp))
-        OutlinedTextField(
-            value = email,
-            onValueChange = { email = it },
-            label = { Text("") },
-            modifier = Modifier.fillMaxWidth().
-            padding(50.dp, 0.dp, 50.dp, 0.dp),
-            textStyle = MaterialTheme.typography.bodyLarge,
-            colors = OutlinedTextFieldDefaults.colors(
-                unfocusedBorderColor = SlateGray,
-                focusedBorderColor = Tomato,
-                focusedLabelColor = Black,
-                cursorColor = Black,
-                focusedTextColor = Black,
-                errorBorderColor = OrangeRed
-            ),
-            shape = RoundedCornerShape(10.dp),
-            singleLine = true,
-            maxLines = 1,
-
-        )
-        Spacer(modifier = Modifier.height(16.dp))
-        Text(
-            modifier = Modifier.fillMaxWidth().padding(50.dp, 0.dp, 50.dp, 0.dp),
-            text = "Password",
-            textAlign = TextAlign.Left,
-            color = PurpleGrey40,
-            style= MaterialTheme.typography.titleLarge,
-        )
-        Spacer(modifier = Modifier.height(8.dp))
-        OutlinedTextField(
-            value = password,
-            onValueChange = { password = it },
-            label = { Text("") },
-            visualTransformation = PasswordVisualTransformation(),
-            modifier = Modifier.fillMaxWidth().
-            padding(50.dp, 0.dp, 50.dp, 0.dp),
-            textStyle = MaterialTheme.typography.bodyLarge,
-            colors = OutlinedTextFieldDefaults.colors(
-                unfocusedBorderColor = SlateGray,
-                focusedBorderColor = Tomato,
-                focusedLabelColor = Black,
-                cursorColor = Black,
-                focusedTextColor = Black,
-                errorBorderColor = OrangeRed
-            ),
-            shape = RoundedCornerShape(10.dp),
-            singleLine = true,
-            maxLines = 1,
-
+        Column(
+            modifier = Modifier
+                .fillMaxSize(),
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.Center
+        ) {
+            Text(
+                text = "Log in",
+                modifier = Modifier.offset(y = -50.dp),
+                textAlign = TextAlign.Center,
+                color = PurpleGrey40,
+                style = MaterialTheme.typography.titleLarge.copy(fontSize = 70.sp),
             )
-        Spacer(modifier = Modifier.height(20.dp))
+            Text(
+                modifier = Modifier.fillMaxWidth().padding(50.dp, 0.dp, 50.dp, 0.dp),
+                text = "Email",
+                textAlign = TextAlign.Left,
+                color = PurpleGrey40,
+                style = MaterialTheme.typography.titleLarge,
+            )
+            Spacer(modifier = Modifier.height(8.dp))
+            OutlinedTextField(
+                value = email,
+                onValueChange = { email = it },
+                label = { Text("") },
+                modifier = Modifier.fillMaxWidth().padding(50.dp, 0.dp, 50.dp, 0.dp),
+                textStyle = MaterialTheme.typography.bodyLarge,
+                colors = OutlinedTextFieldDefaults.colors(
+                    unfocusedBorderColor = SlateGray,
+                    focusedBorderColor = Tomato,
+                    focusedLabelColor = Black,
+                    cursorColor = Black,
+                    focusedTextColor = Black,
+                    errorBorderColor = OrangeRed
+                ),
+                shape = RoundedCornerShape(10.dp),
+                singleLine = true,
+                maxLines = 1,
 
-        Button(shape = RoundedCornerShape(5.dp),
-            contentPadding = PaddingValues(16.dp),
-            onClick = {
-                    authVm.login(email,password)
-            }) {
-            Text("Login")
+                )
+            Spacer(modifier = Modifier.height(16.dp))
+            Text(
+                modifier = Modifier.fillMaxWidth().padding(50.dp, 0.dp, 50.dp, 0.dp),
+                text = "Password",
+                textAlign = TextAlign.Left,
+                color = PurpleGrey40,
+                style = MaterialTheme.typography.titleLarge,
+            )
+            Spacer(modifier = Modifier.height(8.dp))
+            OutlinedTextField(
+                value = password,
+                onValueChange = { password = it },
+                label = { Text("") },
+                visualTransformation = PasswordVisualTransformation(),
+                modifier = Modifier.fillMaxWidth().padding(50.dp, 0.dp, 50.dp, 0.dp),
+                textStyle = MaterialTheme.typography.bodyLarge,
+                colors = OutlinedTextFieldDefaults.colors(
+                    unfocusedBorderColor = SlateGray,
+                    focusedBorderColor = Tomato,
+                    focusedLabelColor = Black,
+                    cursorColor = Black,
+                    focusedTextColor = Black,
+                    errorBorderColor = OrangeRed
+                ),
+                shape = RoundedCornerShape(10.dp),
+                singleLine = true,
+                maxLines = 1,
+
+                )
+            Spacer(modifier = Modifier.height(20.dp))
+
+            Button(
+                shape = RoundedCornerShape(5.dp),
+                contentPadding = PaddingValues(16.dp),
+                onClick = {
+                    authVm.login(email, password)
+                }) {
+                Text("Login")
+            }
+
+            Spacer(modifier = Modifier.height(20.dp))
+            Text(
+                modifier = Modifier.fillMaxWidth().padding(50.dp, 0.dp, 50.dp, 0.dp)
+                    .clickable { navControl.navigate("signup") },
+                text = "New Here? Sign Up!",
+                textAlign = TextAlign.Center,
+                color = PurpleGrey40,
+                style = MaterialTheme.typography.labelSmall,
+
+                )
         }
 
-        Spacer(modifier = Modifier.height(20.dp))
-        Text(
-            modifier = Modifier.fillMaxWidth().padding(50.dp, 0.dp, 50.dp, 0.dp)
-                .clickable {navControl.navigate("signup") },
-            text = "New Here? Sign Up!",
-            textAlign = TextAlign.Center,
-            color = PurpleGrey40,
-            style= MaterialTheme.typography.labelSmall,
 
-        )
-    }
+        when (authState) {
+            is AuthState.Error -> Text(
+                (authState as AuthState.Error).message, color = Red,
+                modifier = Modifier.fillMaxWidth().padding(20.dp).align(
+                    Alignment.BottomCenter
+                ).offset(y = -100.dp),
+                textAlign = TextAlign.Center,
+                style = MaterialTheme.typography.labelSmall.copy(fontSize = 20.sp),
+            )
 
-    when (authState) {
-        is AuthState.Error -> Text((authState as AuthState.Error).message, color = Red)
-        is AuthState.Loading -> CircularProgressIndicator()
-        else -> {}
+            is AuthState.Loading -> CircularProgressIndicator()
+            else -> {}
+        }
     }
 
 }
 
-@Preview(showBackground = true)
-@Composable
-fun LoginPreview() {
-    DishnaryTheme {
-        LoginScreen(
-            rememberNavController(),
-            hiltViewModel()
-        )
-    }
-}
+//@Preview(showBackground = true)
+//@Composable
+//fun LoginPreview() {
+//    DishnaryTheme {
+//        LoginScreen(
+//            rememberNavController(),
+//            hiltViewModel()
+//        )
+//    }
+//}
