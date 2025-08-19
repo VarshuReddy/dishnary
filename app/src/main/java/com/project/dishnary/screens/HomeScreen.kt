@@ -23,6 +23,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.project.dishnary.sealedClasses.BottomNav
+import com.project.dishnary.ui.theme.DishnaryTheme
 import com.project.dishnary.ui.theme.Orange
 import com.project.dishnary.ui.theme.OrangeRed
 import com.project.dishnary.ui.theme.White
@@ -39,9 +40,6 @@ fun HomeScreen() {
     )
 
     Scaffold (
-        topBar = {
-
-        },
         bottomBar = {
             NavigationBar(
                 containerColor = White,
@@ -111,5 +109,7 @@ fun HomeScreen() {
 @Preview
 @Composable
 fun HomeScreenPreview() {
-    HomeScreen()
+    DishnaryTheme {
+        HomeScreen()
+    }
 }
