@@ -46,6 +46,8 @@ fun SearchScreen(
     )
     val uiState  by viewmodel.uiState.collectAsState()
 
+    val selected by viewmodel.selectedItems.collectAsState()
+
 
     Scaffold(
                 containerColor = Coral.copy(alpha = 0.9f),
@@ -86,7 +88,8 @@ fun SearchScreen(
                     val itemsL = (uiState as UiState.Success<List<Items>>).data
                     LazyColumn {
                         items(itemsL){itemsList->
-                            ListItemExpandable(itemsList,viewmodel)
+                            ListItemExpandable(itemsList,selected,
+                                onToggle = {viewmodel.toggleSelection(it)})
                         }
                     }
                 }

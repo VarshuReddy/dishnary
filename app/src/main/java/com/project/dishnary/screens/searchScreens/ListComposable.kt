@@ -42,7 +42,6 @@ import com.project.dishnary.ui.theme.Tomato
 import com.project.dishnary.ui.theme.White
 import com.project.dishnary.ui.theme.WhiteSmoke
 import com.project.dishnary.utils.CategoryIcons
-import com.project.dishnary.viewmodel.SearchVm
 
 @Composable
 fun ListComposable(ingredients: List<Items>) {
@@ -51,17 +50,17 @@ fun ListComposable(ingredients: List<Items>) {
         verticalArrangement = Arrangement.spacedBy(8.dp),
     ) {
         items(ingredients) { item ->
-            ListItemExpandable(item, viewmodel)
+            ListItemExpandable(item,emptySet(),onToggle = {})
         }
     }
 }
 
 
 @Composable
-fun ListItemExpandable(entity: Items, viewmodel: SearchVm) {
+fun ListItemExpandable(entity: Items,selectedItems:Set<String>,
+                       onToggle: (String) -> Unit) {
 
     var isExpanded by remember { mutableStateOf(true) }
-    var selectedItems by remember { mutableStateOf(setOf<String>()) }
 
 
     Column(
@@ -112,6 +111,7 @@ fun ListItemExpandable(entity: Items, viewmodel: SearchVm) {
                     AssistChip(
                         onClick = {
                         if (selected) selectedItems - it else selectedItems + it
+                        onToggle(it)
                     }, label = { Text(it, fontSize = 20.sp) }, colors = AssistChipDefaults.assistChipColors(
                         containerColor = if (selected) Tomato
                         else Color.White.copy(
