@@ -22,6 +22,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.project.dishnary.screens.searchScreens.SearchScreen
 import com.project.dishnary.sealedClasses.BottomNav
 import com.project.dishnary.ui.theme.DishnaryTheme
 import com.project.dishnary.ui.theme.Orange
@@ -92,7 +93,8 @@ fun HomeScreen() {
                 }
             }
 
-        }
+        },
+        topBar = {}
     ){padding ->
         HorizontalPager(state = pagerState ,
             modifier = Modifier.fillMaxSize().padding(padding)) {
