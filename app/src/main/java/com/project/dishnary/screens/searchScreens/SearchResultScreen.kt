@@ -97,7 +97,7 @@ fun RecipeCard(recipe: Recipe) {
             .padding(12.dp)
     ) {
         Text(
-            text = recipe.title,
+            text = recipe.name,
             style = MaterialTheme.typography.titleMedium
         )
 
@@ -107,7 +107,7 @@ fun RecipeCard(recipe: Recipe) {
         )
 
         Text(
-            text = "${recipe.preparationTime} min",
+            text = "${recipe.time} min",
             style = MaterialTheme.typography.bodySmall
         )
     }
