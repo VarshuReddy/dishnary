@@ -32,7 +32,7 @@ class ItemsRepo @Inject constructor(private val firestore: FirebaseFirestore) {
     ): List<Recipe> {
 
         val snapshot = firestore
-            .collection("recipes")
+            .collection("Recipes")
             .get()
             .await()
 
@@ -55,7 +55,7 @@ class ItemsRepo @Inject constructor(private val firestore: FirebaseFirestore) {
             val percentage =
                 matched.size.toDouble() / recipeIngredients.size
 
-            percentage >= 0.50
+            percentage >= 0.20
         }
     }
 }

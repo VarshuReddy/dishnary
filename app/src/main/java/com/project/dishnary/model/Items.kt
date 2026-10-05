@@ -7,13 +7,10 @@ data class Items(
 
 data class Recipe(
     val id: String = "",
-    val title: String = "",
+    val name: String = "",
     val ingredients: List<String> = emptyList(),
-    val steps: List<String> = emptyList(),
-    val preparationTime: Int = 0,
-    val imageUrl: String = "",
-    val tags: List<String> = emptyList(),
-    val authorName: String = "",
-    val authorId: String = "",
-    val videoUrl: String = ""
+    val instructions: List<String> = emptyList(),
+    val time: Int = 0,
+    val image_url: String = "",
+    val description:String =""
 )
