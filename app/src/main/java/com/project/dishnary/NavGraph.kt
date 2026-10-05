@@ -8,6 +8,7 @@ import com.project.dishnary.screens.HomeScreen
 import com.project.dishnary.screens.LoginScreen
 import com.project.dishnary.screens.SignUpScreen
 import com.project.dishnary.screens.SplashScreen
+import com.project.dishnary.screens.searchScreens.SearchResultsScreen
 import com.project.dishnary.sealedClasses.Screens
 import com.project.dishnary.viewmodel.AuthenticationVM
 
@@ -27,8 +28,12 @@ fun Navigate(authVm: AuthenticationVM) {
             SignUpScreen(navControl,authVm)
         }
         composable(Screens.Home.route) {
-            HomeScreen()
+            HomeScreen(navControl)
+        }
+        composable("search_results") {
+            SearchResultsScreen(navControl)
         }
     }
+
 }
 

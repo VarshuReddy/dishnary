@@ -19,12 +19,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavHostController
 import com.project.dishnary.screens.searchScreens.SearchScreen
 import com.project.dishnary.sealedClasses.BottomNav
-import com.project.dishnary.ui.theme.DishnaryTheme
 import com.project.dishnary.ui.theme.Orange
 import com.project.dishnary.ui.theme.OrangeRed
 import com.project.dishnary.ui.theme.White
@@ -32,7 +31,7 @@ import kotlinx.coroutines.launch
 
 
 @Composable
-fun HomeScreen() {
+fun HomeScreen(navControl: NavHostController) {
     val scope = rememberCoroutineScope()
     val items = listOf(BottomNav.Search, BottomNav.Recipes , BottomNav.Profile)
     val pagerState = rememberPagerState(
@@ -45,6 +44,7 @@ fun HomeScreen() {
             NavigationBar(
                 containerColor = White,
                 tonalElevation = 3.dp,
+
             ) {
                 items.forEachIndexed { index,item ->
                     val selected = pagerState.currentPage == index
@@ -68,19 +68,19 @@ fun HomeScreen() {
                                     painterResource(item.iconSelected),
                                     contentDescription = item.title,
                                     tint = Color.Unspecified,
-                                    modifier = Modifier.size(30.dp)
+                                    modifier = Modifier.size(20.dp)
                                 )
                             }else{
                                 Icon(
                                     painterResource(item.iconUnselected),
                                     contentDescription = item.title,
                                     tint = Color.Unspecified,
-                                    modifier = Modifier.size(24.dp)
+                                    modifier = Modifier.size(14.dp)
                                 )
                             }
                         } ,
                         label = {Text(item.title,
-                            fontSize = 12.sp
+                            fontSize = 10.sp
                             )
                            },
 
@@ -99,7 +99,7 @@ fun HomeScreen() {
         HorizontalPager(state = pagerState ,
             modifier = Modifier.fillMaxSize().padding(padding)) {
             when(it){
-                0 -> SearchScreen()
+                0 -> SearchScreen(navControl)
                 1 -> RecipesScreen()
                 2 -> ProfileScreen()
             }
@@ -107,11 +107,3 @@ fun HomeScreen() {
     }
 }
 
-
-@Preview
-@Composable
-fun HomeScreenPreview() {
-    DishnaryTheme {
-        HomeScreen()
-    }
-}
